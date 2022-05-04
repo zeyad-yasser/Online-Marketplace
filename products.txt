@@ -1,0 +1,7 @@
+77 Pizza 199.66 Food 100 202 116.5 27 4.31482
+11 iPhone 18500.5 Home 14 13 0 0 0
+22 G-shock 18500.5 Electronics 15 13 0 0 0
+33 Cat 18500.5 Pets 15 83 0 0 0
+44 Aspirin 18500.5 Health 15 13 0 0 0
+55 T-shirt 18500.5 Clothes 25 13 0 0 0
+66 Macbook 25000.5 Electronics 18 10 0 0 0
