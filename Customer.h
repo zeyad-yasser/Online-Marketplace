@@ -18,7 +18,7 @@ public:
     void browseByCategoryOrName(string);
 	void dispalyCat();
 	void display();
-
+    void displayByRate();
 	~Customer(void);
 
 };

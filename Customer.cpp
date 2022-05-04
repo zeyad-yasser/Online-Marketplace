@@ -127,5 +127,23 @@ void Customer::dispalyCat()
 		catStr.push_back(vpd[i].category);
 	}
 }
-
+void Customer::displayByRate()
+{
+	vector<Product>vpd = ReadProductsFile();
+    set<pair<float, int>>st;
+	for (int i = 0; i < vpd.size(); i++)
+	{
+		st.insert(make_pair( vpd[i].avgRate,vpd[i].id));
+	}
+	for (auto it = st.rbegin(); it != st.rend(); it++)
+	{
+		for (int i = 0; i < vpd.size(); i++)
+		{
+            if(vpd[i].id==it->second)
+			{
+				vpd[i].info();
+			}
+		}
+	}
+}
 Customer::~Customer(void){}
