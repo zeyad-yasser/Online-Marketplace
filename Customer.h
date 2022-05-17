@@ -17,8 +17,9 @@ public:
 	void setRate(int, float);
     void browseByCategoryOrName(string);
 	void dispalyCat();
+	void displayByRate();
 	void display();
-    void displayByRate();
+
 	~Customer(void);
 
 };

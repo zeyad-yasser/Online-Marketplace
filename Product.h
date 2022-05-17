@@ -8,6 +8,7 @@ public:
 	int id,qunt,sellerId,rTime;
 	string name, category;
 	float price,avgRate,totalRates;
+	void infoForCustomer();
 	Product(void);
 	Product(int, string,float,string, int,int,float);
 	Product(int id, string name, float price, int qunt, int sellerId, string category,float,int,float);

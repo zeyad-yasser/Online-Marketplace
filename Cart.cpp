@@ -27,6 +27,7 @@ vector<Product> readProductsFFile()
 	search.close();
 	return vpd;
 }
+
 vector<Product> readCartFile()
 {
 	vector<Product>vpd;
@@ -71,10 +72,44 @@ void Cart::addtocart(string name, int qunt)
 
 void Cart::confirmCart()
 {
-  //you need to  decrease qunt of products in the system 
+   //you need to  decrease qunt of products in the system 
+	   
+		vector<Product>Cartvpd = readCartFile();
+		vector<Product>Provpd = readProductsFFile();
+		for (int ii = 0; ii < Cartvpd.size(); ii++)
+		{
+			for (int j = 0; j < Provpd.size(); j++)
+			{
 
+				if (Cartvpd[ii].id == Provpd[j].id)
+				{
+					int q = 0;
+					q = Cartvpd[ii].qunt;
+					Provpd[j].qunt -= q;
+				}
+		    }
+
+			fstream reIn;
+			reIn.open("products.txt", ios::out);
+			for (int i = 0; i < Provpd.size(); i++)
+			{
+				reIn << Provpd[i].id << ' ' << Provpd[i].name << ' ' << Provpd[i].price << ' ' << Provpd[i].category << ' ' << Provpd[i].qunt << ' ' << Provpd[i].sellerId << ' ' << Provpd[i].totalRates << ' ' << Provpd[i].rTime << ' ' << Provpd[i].avgRate << endl;
+			}
+			reIn.close();
+         
+		
+				
+		}
+
+		
 }
-
+void Cart::deletAllCart()
+{
+	fstream reIn;
+	reIn.open("Cart.txt", ios::out);
+	reIn <<"";
+	reIn.close();
+}
  void  Cart::deletfromcart(string name,int id)
 {	
 	 vector<Product>vpd = readCartFile();

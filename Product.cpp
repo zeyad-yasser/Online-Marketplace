@@ -56,5 +56,11 @@ void Product::info ()
 	cout<<this->id<<" "<< this->name <<" "<<this->price <<" "<<this->qunt<<" "<<this->sellerId<<" "<<this->category<<" "<<this->avgRate<<endl;
 }
 
+void Product::infoForCustomer()
+{
+	cout << this->id << " " << this->name << " " << this->price << " "  <<  " " <<  " Rate " << this->avgRate << endl;
+}
+
+
 
 Product::~Product(void){}

@@ -1,3 +1,4 @@
+//#define Customer _declspec(dllexport)
 #include "Customer.h"
 #include "Seller.h"
 #include "Product.h"
@@ -37,6 +38,7 @@ vector<Customer> readCustomersFile()
 	Search.close();
 	return ctr;
 }
+
 Customer::Customer(){}
 Customer::Customer(int Cid, string Cname, string Caddress, string CphoneNumber, string Cemail, string Cpassword, string customerCart)
 {
@@ -75,7 +77,7 @@ void Customer::browseByCategoryOrName(string catORName)
 	{
 		if (vpd[i].category == catORName || vpd[i].name == catORName)
 		{
-			vpd[i].info();
+   	        vpd[i].infoForCustomer();
 		}
 	}
 }
@@ -109,9 +111,28 @@ void Customer::display()
 
 	for (int i = 0; i < vpd.size(); i++)
 	{
-		vpd[i].info();
+	  vpd[i].infoForCustomer();
 	}
 
+}
+void Customer::displayByRate()
+{
+	vector<Product>vpd = ReadProductsFile();
+    set<pair<float, int>>st;
+	for (int i = 0; i < vpd.size(); i++)
+	{
+		st.insert(make_pair( vpd[i].avgRate,vpd[i].id));
+	}
+	for (auto it = st.rbegin(); it != st.rend(); it++)
+	{	
+		for (int i = 0; i < vpd.size(); i++)
+		{
+            if(vpd[i].id==it->second)
+			{
+				vpd[i].info();
+			}
+		}
+	}
 }
 
 void Customer::dispalyCat()
@@ -127,23 +148,5 @@ void Customer::dispalyCat()
 		catStr.push_back(vpd[i].category);
 	}
 }
-void Customer::displayByRate()
-{
-	vector<Product>vpd = ReadProductsFile();
-    set<pair<float, int>>st;
-	for (int i = 0; i < vpd.size(); i++)
-	{
-		st.insert(make_pair( vpd[i].avgRate,vpd[i].id));
-	}
-	for (auto it = st.rbegin(); it != st.rend(); it++)
-	{
-		for (int i = 0; i < vpd.size(); i++)
-		{
-            if(vpd[i].id==it->second)
-			{
-				vpd[i].info();
-			}
-		}
-	}
-}
+
 Customer::~Customer(void){}
