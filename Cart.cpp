@@ -156,7 +156,7 @@ void   Cart::displayMyCart()
 	vector <Product> vpd = readCartFile();
 	for (int i = 0; i < vpd.size(); i++)
 	{
-		cout << vpd[i].qunt<< ' ' << vpd[i].name<<' ' << vpd[i].price << ' ' << vpd[i].category << ' ' <<endl;
+		cout<<  vpd[i].qunt << " items :    " << " ID : " << vpd[i].id << ' ' << vpd[i].name << ' ' << vpd[i].price << ' ' << vpd[i].category << ' ' << endl;
     }
 }
 Cart::~Cart(void) {}
