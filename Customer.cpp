@@ -129,7 +129,7 @@ void Customer::displayByRate()
 		{
             if(vpd[i].id==it->second)
 			{
-				vpd[i].info();
+				vpd[i].infoForCustomer();
 			}
 		}
 	}
